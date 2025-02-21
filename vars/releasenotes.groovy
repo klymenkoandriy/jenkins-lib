@@ -2,17 +2,23 @@ import groovy.io.FileType;
 import java.io.File;
 
 def call(Map config=[:]){
-    def dir = new File(".");
+    println("Run script from 'releasenotes' library")
 
-    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') {
-        writer -> dir.eachFileRecurse(FileType.ANY){
-            file ->
-            if (file.isDirectory()){
-                 writer.writeLine(file.name);
-            } else {
-                writer.writeLine('\t' + file.name + '\t' + file.length());
-            }
-        }
-    }
+    // TODO:
+    // requires 'new File(pwd())' but on server 'Stream closed'
+    // when 'new File(".")' then on server 'Permission denied'
+
+//    def dir = new File(".");
+//
+//    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') {
+//        writer -> dir.eachFileRecurse(FileType.ANY){
+//            file ->
+//            if (file.isDirectory()){
+//                 writer.writeLine(file.name);
+//            } else {
+//                writer.writeLine('\t' + file.name + '\t' + file.length());
+//            }
+//        }
+//    }
 
 }
