@@ -9,8 +9,9 @@ def call(Map config=[:]){
     println("Current job is ${env.JOB_NAME}")
     println("Current build is ${env.BUILD_NUMBER}")
 
-    def dir = new File(".");
-
+    def path = "/var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}"
+    println("Build path is ${path}")
+    def dir = new File(path);
 
     new File(dir.path + '/releasenotes.txt').withWriter('utf-8') {
         writer -> dir.eachFileRecurse(FileType.ANY){
