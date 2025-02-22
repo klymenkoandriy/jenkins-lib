@@ -4,8 +4,8 @@ import java.io.File;
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
     println("whoami".execute().text)
-    def workspacePath = ("pwd".execute().text)
-    println("Current workspace path is ${workspacePath}")
+
+    println("Current workspace path is ${env.WORKSPACE}")
 
     def dir = new File(".");
 
