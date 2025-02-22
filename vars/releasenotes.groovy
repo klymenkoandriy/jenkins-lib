@@ -4,11 +4,6 @@ import java.io.File;
 @NonCPS
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
-    println("whoami".execute().text)
-
-    println("Current workspace path is ${env.WORKSPACE}")
-    println("Current job is ${env.JOB_NAME}")
-    println("Current build is ${env.BUILD_NUMBER}")
 
     def path = "/var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}"
     println("Build path is ${path}")
