@@ -1,6 +1,7 @@
 import groovy.io.FileType;
 import java.io.File;
 
+@NonCPS
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
     println("whoami".execute().text)
