@@ -1,24 +1,23 @@
 import groovy.io.FileType;
 import java.io.File;
 
+@NonCPS
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
 
-    // TODO:
-    // requires 'new File(pwd())' but on server 'Stream closed'
-    // when 'new File(".")' then on server 'Permission denied'
+    def path = "/var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}"
+    println("Build path is ${path}")
+    def dir = new File(path);
 
-//    def dir = new File(".");
-//
-//    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') {
-//        writer -> dir.eachFileRecurse(FileType.ANY){
-//            file ->
-//            if (file.isDirectory()){
-//                 writer.writeLine(file.name);
-//            } else {
-//                writer.writeLine('\t' + file.name + '\t' + file.length());
-//            }
-//        }
-//    }
+    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') {
+        writer -> dir.eachFileRecurse(FileType.ANY){
+            file ->
+            if (file.isDirectory()){
+                 writer.writeLine(file.name);
+            } else {
+                writer.writeLine('\t' + file.name + '\t' + file.length());
+            }
+        }
+    }
 
 }
