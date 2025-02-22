@@ -6,6 +6,7 @@ def call(Map config=[:]){
     println("whoami".execute().text)
 
     println("Current workspace path is ${env.WORKSPACE}")
+    println("Current job is ${env.JOB_NAME}")
 
     def dir = new File(".");
 
