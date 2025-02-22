@@ -7,6 +7,7 @@ def call(Map config=[:]){
 
     println("Current workspace path is ${env.WORKSPACE}")
     println("Current job is ${env.JOB_NAME}")
+    println("Current build is ${env.BUILD_NUMBER}")
 
     def dir = new File(".");
 
