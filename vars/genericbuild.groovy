@@ -17,7 +17,6 @@ def call(Map config=[:]) {
             }
             stage("my-lib-report") {
                 steps {
-                    println("config1: ${config}")
                     releasenotes(config)
                 }
             }
