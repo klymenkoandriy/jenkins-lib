@@ -5,6 +5,9 @@ import java.io.File;
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
 
+    def configSomeValue = config.someKey
+    println("Run with config: 'someKey'='${configSomeValue}'")
+
     def path = "/var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}"
     println("Build path is ${path}")
     def dir = new File(path);
