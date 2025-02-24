@@ -5,6 +5,8 @@ import java.io.File;
 def call(Map config=[:]){
     println("Run script from 'releasenotes' library")
 
+    println("config2: ${config}")
+
     def configSomeValue = config.someKey
     println("Run with config: 'someKey'='${configSomeValue}'")
 
